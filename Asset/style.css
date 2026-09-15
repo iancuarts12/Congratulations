@@ -90,7 +90,7 @@ body {
     font-style: italic;
     font-weight: 400;
     line-height: 1.5;
-    color: #fff;
+    color: black;
 }
 
 .message-column {
@@ -113,7 +113,6 @@ body {
     inset: 0;
     display: none;
     overflow: auto;
-  
     border-radius: 40px;
 }
 
@@ -158,14 +157,56 @@ body {
     text-underline-offset: 0.2em;
     text-shadow: 0 1px 6px rgba(60, 40, 0, 0.4);
     cursor: pointer;
+
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.first{ 
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:.5rem;
+    width: min(100%,70rem);
+    min-height: 100vh;
+    margin:0 auto;
+    padding: 4rem 2rem;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+}
+.first h1{
+    margin: 0;
+    text-align: center;
+}
+.scroll-container{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%); 
+    text-align: center; 
+
+    animation: bounce 2s ease-in-out infinite;
+}
+.scroll-container p{
+    margin: 0
 }
 
 .next:hover,
 .next:focus-visible {
     opacity: 0.8;
+    color: black;
 }
 
-
+@keyframes bounce{
+    0%, 100%{
+        transform: translateX(-50%) tranlateY(0);
+    }
+    50%{
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
 
 @media (max-width: 600px) {
     .music {
