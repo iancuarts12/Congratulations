@@ -113,7 +113,7 @@ body {
     position: absolute;
     inset: 0;
     display: none;
-    overflow: auto;
+    overflow: hidden;
     border-radius: 40px;
 }
 
@@ -179,6 +179,7 @@ body {
 .first h1{
     margin: 0;
     text-align: center;
+    font-size: clamp(2.5rem, 6vw, 5rem);
 }
 .scroll-container{
     position: absolute;
@@ -193,41 +194,94 @@ body {
     margin: 0
 }
 
-.second{ 
-    background-image: url("last_bg.png");
-    display: grid;
-    justify-items: center;
-    align-items: start;
-    min-height: 100vh;
-    min-width: 100vh;
-    background-repeat: no-repat;
-    background-size: cover;
-    background-repeat: no-repeat;
-
+.second { 
+    position: relative;
+    height: 100vh; 
+    width: 100%; 
+    padding: 2rem; 
+    box-sizing: border-box;
+    background-image: url("last_bg.png"); 
+    background-repeat: no-repeat; 
+    background-size: 100% 100%; 
+    background-position: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 1.5rem; 
+    text-align: center; 
+    overflow: hidden;
+    } 
+.second h1 { 
+        margin: 0; 
+        font-size: 9vh; 
+        letter-spacing: 0.08em; 
+        text-shadow: 0 2px 8px rgba(60, 40, 0, 0.3); 
+    }  
+.her2 { 
+    width: min(70vw, 25rem); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 1rem; 
+}
+.image-container { 
+    position: relative; 
+    width: 100%; 
+    aspect-ratio: 1 / 1; 
+    overflow: hidden; 
+    border-radius: 40px; 
+} 
+.her2 .slide { 
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: cover; 
+    border-radius: 40px; 
+    opacity: 0; 
+    transform: scale(1.05); 
+    transition: opacity 0.7s ease, transform 0.9s ease; 
+}
+.her2 .slide.active { 
+    opacity: 1; 
+    transform: scale(1); 
+} 
+.image-next { 
+    padding: 0.5rem 1rem; 
+    border: none; background: none; 
+    color: #3a2a00; 
+    font-family: inherit; 
+    font-size: 1.1rem; 
+    font-weight: 700; 
+    font-style: italic; 
+    text-decoration: underline; 
+    text-underline-offset: 0.2em; 
+    cursor: pointer; 
+    transition: opacity 0.2s ease, transform 0.2s ease; 
+} 
+.image-next:hover { 
+    opacity: 0.7; 
+    transform: translateX(4px); 
+} 
+.image-next:active { 
+    transform: translateX(2px); 
+}
+.closing { 
+    max-width: 45rem; 
+    text-align: center; 
+    font-size: clamp(1rem, 2vw, 1.2rem); 
+    line-height: 1.6; font-style: italic; 
+} 
+.closing p {
+    margin: 0.5rem 0; 
 }
 
-.her2{ 
-    width: min(38vw, 22rem);
-    display:center;
-    align-items:center;
-    justify-items:center;
-}
-.her2 img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 40px;
-}
-
-.second h1{
-    font-size: 60px;
-}
-.closing{
-    align-items:center;
-    justify-items:center;
-}
-.second p { 
-    font-size:20px;
+@keyframes bounce { 
+    0%, 100% { 
+        transform: translateX(-50%) translateY(0); 
+    } 
+    50% { 
+        transform: translateX(-50%) translateY(-10px); 
+    } 
 }
 
 .next:hover,
@@ -250,6 +304,19 @@ body {
     }
     50%{
         transform: translateX(-10%) translateY(0);
+    }
+}
+@keyframes typing-title {
+    0% {
+        width: 0;
+    }
+
+    60% {
+        width: 100%;
+    }
+
+    100% {
+        width: 100%;
     }
 }
 
