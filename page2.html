@@ -7,6 +7,28 @@
     <link rel="stylesheet" href="Asset/style.css">
 </head>
 <body class="page2">
+
+    <div class="loader" id="loader">
+        <div class="sunflower-loader">
+
+            <div class="petals">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="flower-center"></div>
+
+        </div>
+
+        <p class="loading-text">Loading...</p>
+    </div>
+
     <audio id="backgroundMusic" src="Asset/yellow.mp3" loop preload="auto"></audio>
     <button class="music" id="musicButton" type="button" aria-label="Play Music">🔇</button>
 
@@ -23,6 +45,34 @@
                 </div>
 
                 <div class="message2">
+                    <p>Hi Ashe:</p>
+                    <p>Pagbati agad! Hindi ko alam sasabihin ko kasi I'm not a person na masyadong mamessage HAHAHA. Pero gusto ko lang sabihin sa'yo na super proud ako sa'yo dahil from Ashe na pumapasok na mas mabigat pa ang bag sa kaniya, may salonpas sa ulo, may lola remedios, mga pagtitipid sa sarili na pati pamasahe mo wala na natitira pauwi ng agora to Ashe na gagraduate na ng kolehiyo. </p>
+                    <p>Marami man tayong di pa uli napapagkwentuhan pero gusto ko rin sabihin sa'yo na super proud ako sa'yo as ate of all your kapatid, ang swerte nila na ang ate nila ay sobrang masipag at maaalahanin sa mga kapatid niya at pamilya niya.</p>
+                </div>
+
+                <div class="message2">
+                    <p>I hope naeenjoy mo ang flow of your life rn, if maburnout ka we're always here sa Balut, syempre ikaw dadayo HAHAHHAHA and as always if you need help chat mo lang ako and I'll reply as soon as possible (kasi always akong nasa volunteering ganaps ko eh or working hehe)</p>
+                    <p>Muli, pagbati sa'yo Ashe namin. Mahal ka namin, okay? Always remember that. Mwa.</p>
+                    <p class="sender">-Bianca</p>
+                </div>
+
+                <div class="message2">
+                    <p>Hi, Aicelle, congrats.</p>
+                    <p>Finally, all your hardwork has paid off. I know how much you have been striving and praying for this moment to come and I know naiyak ka pa niyan HAHAHA.</p>
+                    <p>And if whenever things become difficult again, remember this day how He gave you the victory. Not every season will be good but always remember that God has not yet finished doing good things in your life (Romans 8:28), okay??</p> 
+                    <p>Again, Congratulations and have a great day😅</p>
+                    <p class="sender">-Danniela</p>
+                </div>
+
+                <div class="message2">
+                    <p>Haii Cel!</p>
+                    <p>Congratulations on graduating!</p>
+                    <p>D-day is only the visible part of your college journey. What people don't see are all the sleepless nights, silent struggles, and moments of self doubt. I'm happy that I got to be a part of your academic journey and witness you grow along the way.</p> 
+                    <p>I'm truly proud of you and what you've become. Always know that we have your back. Wishing you all the best in life!🖤</p>
+                    <p class="sender">-Kathleen</p>
+                </div>
+                
+                <div class="message2">
                     <p>To Ashe:</p>
                     <p>Congratulations! I wish that all of your wishes come true! Keep moving forward and achieve greater feats in the real world!</p>
                     <p>I am so proud of everything you have worked for. Magna Cum Laude looks good on you — and it is only the beginning.</p>
@@ -30,22 +80,10 @@
                     <p>I will always be your number 1 supporter! FIGHTING!!!</p>
                     <p class="sender">-Ian</p>
                 </div>
-                
-                <div class="message2">
-                    <p>To Ashe:</p>
-                    <p></p>
-                    <p></p>
-                    <p class="sender">-Bianca</p>
-                </div>
 
-                <div class="message2">
-                    <p>To Ashe:</p>
-                    
-                    <p class="sender">-Dani</p>
-                </div>
             </div>
-
-            <button type="button" class="next" data-next-message>Next</button>
+            <div class="message-progress-tracker" id="progressTracker"></div>
+            <button type="button" class="next is-locked" data-next-message>Next</button>
         </div>
 
         <div class="her">
@@ -57,5 +95,6 @@
 
     <script src="Asset/page2.js"></script>
     <script src="Asset/music.js"></script>
+    <script src="Asset/loader.js"></script>
 </body>
 </html>

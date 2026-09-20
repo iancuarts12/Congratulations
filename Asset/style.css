@@ -3,6 +3,131 @@
 *::after {
     box-sizing: border-box;
 }
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f6e9b0;
+    opacity: 1;
+    visibility: visible;
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.sunflower-loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    animation: sunflower-spin 8s linear infinite;
+}
+
+.petals {
+    position: absolute;
+    inset: 0;
+    animation: petals-pulse 2s ease-in-out infinite;
+}
+
+.petals span {
+    position: absolute;
+    width: 28px;
+    height: 45px;
+    left: 50%;
+    top: 50%;
+    transform-origin: 50% 50%;
+    background: #f5b82e;
+    border-radius: 50% 50% 45% 45%;
+    transform: translate(-50%, -50%) rotate(var(--rotation)) translateY(-30px);
+    opacity: 0.9;
+}
+
+.petals span:nth-child(1) {
+    --rotation: 0deg;
+}
+.petals span:nth-child(2) {
+    --rotation: 45deg;
+}
+.petals span:nth-child(3) {
+    --rotation: 90deg;
+}
+.petals span:nth-child(4) {
+    --rotation: 135deg;
+}
+.petals span:nth-child(5) {
+    --rotation: 180deg;
+}
+.petals span:nth-child(6) {
+    --rotation: 225deg;
+}
+.petals span:nth-child(7) {
+    --rotation: 270deg;
+}
+.petals span:nth-child(8) {
+    --rotation: 315deg;
+}
+
+.flower-center {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background:radial-gradient(circle at 35% 35%, #8a5a20 0%, #704313 45%, #4d2d0d 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px rgba(111, 67, 19, 0.15), 0 4px 10px rgba(60, 40, 0, 0.25);
+    z-index: 2;
+}
+
+/* =================================
+   LOADING TEXT
+================================= */
+
+.loading-text {
+
+    margin-top: 1.5rem;
+
+    color: #5c3b0b;
+
+    font-family:
+        Georgia,
+        "Palatino Linotype",
+        "Times New Roman",
+        serif;
+
+    font-size: 1.2rem;
+
+    font-style: italic;
+
+    letter-spacing: 0.12em;
+
+    animation: loading-text-pulse 1.5s ease-in-out infinite;
+}
+
+
+@keyframes loading-text-pulse {
+
+    0%,
+    100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
 
 body {
     min-height: 100vh;
@@ -139,6 +264,61 @@ body {
 .message2 p {
     margin-left: 70px;
     margin:10px;
+}
+
+.message2 p:last-of-type::after{
+    content: '|';
+    display: inline-block;
+    margin-left: 3px;
+    color: #5c3b0b;
+    font-weight: bold;
+    animation: cursor-blink 0.7s step-end infinite;
+}
+
+.message2.typing-complete p:last-of-type::after {
+    display: none;
+}
+
+.message-progress-tracker {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.progress-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(92, 59, 11, 0.25); /* Muted brown */
+    border-radius: 50%;
+    transition: all 0.4s ease;
+}
+
+.progress-dot.active {
+    background-color: #f5b82e; /* Bright sunflower yellow */
+    transform: scale(1.3);
+    box-shadow: 0 0 8px rgba(245, 184, 46, 0.6);
+}
+
+/* 3. Next Button Locked & Unlocked states */
+.next {
+    transition: all 0.3s ease-in-out;
+}
+
+.next.is-locked {
+    opacity: 0.3;
+    cursor: not-allowed;
+    text-shadow: none;
+    pointer-events: none;
+}
+
+.next.is-ready {
+    opacity: 1;
+    color: #5c3b0b; /* Change to a sharp, high-contrast readable color */
+    pointer-events: auto;
+    animation: button-pulse-glow 2s infinite ease-in-out;
 }
 
 .message2 .sender {
@@ -335,6 +515,35 @@ body {
         width: 100%;
     }
 }
+@keyframes sunflower-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+@keyframes petals-pulse {
+
+    0%,100%{
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+@keyframes cursor-blink {
+    from, to { color: transparent }
+    50% { color: #5c3b0b }
+}
+@keyframes button-pulse-glow {
+    0%, 100% { transform: scale(1); text-shadow: 0 1px 6px rgba(245, 184, 46, 0.4); }
+    50% { transform: scale(1.05); text-shadow: 0 1px 12px rgba(245, 184, 46, 0.8); }
+}
+
 
 @media (max-width: 600px) {
     .music {
