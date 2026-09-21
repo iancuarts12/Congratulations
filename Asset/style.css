@@ -546,6 +546,11 @@ body {
 
 
 @media (max-width: 600px) {
+
+    body {
+        background-size: cover;
+    }
+
     .music {
         top: 0.85rem;
         left: 1rem;
@@ -556,33 +561,98 @@ body {
         right: 1rem;
         bottom: 1rem;
     }
+    .page2 {
+        background-size: cover;
+        background-position: center;
+        overflow-y: auto;
+    }
 
     .body2 {
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: column; 
+        justify-content: flex-start;
+        align-items: center;
         text-align: center;
-        padding: 5rem 1.25rem 5rem;
+        padding: 5rem 1.5rem 3rem;
+        gap: 1.5rem;
+        min-height: 100vh;
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    .message-column,
-    .message-stack {
-        width: min(100%, 100rem);
-        height: 50rem;
-        flex: none;
-        margin-left: 0;
-        overflow:hidden;
+   
+    .her {
+        order: 1; 
+        width: 100%;
+        max-width: 16rem;
+        height: 16rem; 
+        margin-right: 0;
+        flex-shrink: 0; 
+        overflow: hidden;
+    }
+
+    .her img {
+        width: 100%;
+        height: 100%; 
+        object-fit: cover;
+        border-radius: 24px;
+    }
+
+    .message-column {
+        order: 2; 
+        width: 100%;
+        max-width: 100%;
+        align-items: center;
+        flex: 1 0 auto; 
     }
 
     .message-stack {
-        height: 18rem;
+        width: 100%;
+        height: auto; 
+        min-height: 14rem; 
+    }
+
+    .message2 {
+        position: relative;
+        width: 100%;
+    }
+
+    .message2 p {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .message2 .sender {
+        justify-content: center;
+        margin-right: 0;
     }
 
     .next {
         align-self: center;
+        margin-top: 1.5rem;
     }
 
-    .her {
-        width: min(70vw, 16rem);
-        margin-right: 0;
+    .second {
+        background-size: cover;
+        background-position: center;
+        padding: 4rem 1.5rem 2rem;
+        justify-content: center;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .second h1 {
+        font-size: clamp(2rem, 8vw, 3.2rem);
+        line-height: 1.2;
+        width: 100%;
+    }
+
+    .her2 {
+        width: 100%;
+        max-width: 18rem;
+    }
+
+    .closing {
+        width: 100%;
+        font-size: 1.05rem;
     }
 }
